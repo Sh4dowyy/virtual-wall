@@ -29,6 +29,7 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
+    --light-pink: #ffe4e1; /* Define light pink color */
   }
 
   .dark {
@@ -287,4 +288,8 @@ h3 {
 .flashing-heart {
   animation: flash 0.5s ease-in-out infinite; /* Flashing effect */
   color: red; /* Heart color */
+}
+
+.bg-light-pink {
+  background-color: var(--light-pink); /* Use the defined color */
 }
