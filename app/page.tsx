@@ -1,10 +1,10 @@
-import WallBackground from '@/components/background';
-import EmployeeList from '../components/EmployeeList';
+import EmployeeCard from '@/components/employee-card';
+import EmployeeList from '../components/employee-list';
 
 export default function Home() {
   return (
     <div>
-        <EmployeeList />
+      <EmployeeList />
     </div>
   );
 }
