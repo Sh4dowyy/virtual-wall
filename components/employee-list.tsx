@@ -37,7 +37,9 @@ export default function EmployeeList() {
         console.error('Error fetching employees:', error);
       } else {
         console.log('Fetched employees:', data);
-        setEmployees(data);
+        // Sort employees by ID in descending order
+        const sortedEmployees = data.sort((a: Employee, b: Employee) => b.id - a.id);
+        setEmployees(sortedEmployees);
       }
     };
     fetchEmployees();

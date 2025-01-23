@@ -43,8 +43,15 @@ const EmployeeModal: React.FC<EmployeeModalProps> = ({
 }) => {
   if (!selectedEmployee) return null;
 
+  const handleBackgroundClick = (e: React.MouseEvent) => {
+    // Close modal if the background is clicked
+    if (e.currentTarget === e.target) {
+      closeModal();
+    }
+  };
+
   return (
-    <div className="modal" onClick={closeModal}>
+    <div className="modal" onClick={handleBackgroundClick}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <span className="close" onClick={closeModal}>&times;</span>
         {selectedEmployee.photo_url && (
@@ -74,31 +81,34 @@ const EmployeeModal: React.FC<EmployeeModalProps> = ({
         <form onSubmit={handleSubmit}>
           {activeTab === 'gratitude' && (
             <div>
-              <input
-                type="text"
+              <textarea
                 value={newGratitude}
                 onChange={(e) => setNewGratitude(e.target.value)}
                 placeholder="Lisa tänulikkus"
+                rows={3}
+                style={{ width: '100%', resize: 'vertical' }}
               />
             </div>
           )}
           {activeTab === 'achievements' && (
             <div>
-              <input
-                type="text"
+              <textarea
                 value={newAchievement}
                 onChange={(e) => setNewAchievement(e.target.value)}
                 placeholder="Lisa saavutused"
+                rows={3}
+                style={{ width: '100%', resize: 'vertical' }}
               />
             </div>
           )}
           {activeTab === 'warm_words' && (
             <div>
-              <input
-                type="text"
+              <textarea
                 value={newWarmWord}
                 onChange={(e) => setNewWarmWord(e.target.value)}
                 placeholder="Lisa soojad sõnad"
+                rows={3}
+                style={{ width: '100%', resize: 'vertical' }}
               />
             </div>
           )}

@@ -22,9 +22,9 @@ const EmployeeCard: React.FC<EmployeeCardProps> = ({ employee, onClick }) => {
       )}
       <h3 className="employee-name"><strong>{employee.name}</strong></h3>
       <div className="employee-stats">
-        <span>💬 {employee.gratitude.length}</span>
-        <span>🏆 {employee.achievements.length}</span>
-        <span>❤️ {employee.warm_words.length}</span>
+        <span>💬 {employee.gratitude.length > 0 ? employee.gratitude.length : '0'}</span>
+        <span>🏆 {employee.achievements.length > 0 ? employee.achievements.length : '0'}</span>
+        <span>❤️ {employee.warm_words.length > 0 ? employee.warm_words.length : '0'}</span>
       </div>
     </div>
   );
