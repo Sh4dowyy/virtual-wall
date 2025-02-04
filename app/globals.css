@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'); /* Import a Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Lucida+Handwriting&display=swap'); /* Import Lucida Handwriting Font */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -30,6 +33,7 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --light-pink: #ffe4e1; /* Define light pink color */
+    --font-family: 'Lucida Handwriting', cursive; /* Set the font family */
   }
 
   .dark {
@@ -69,6 +73,9 @@
     background-color: #ffe4e1; /* Light pink background */
     margin: 0; /* Remove default margin */
     padding: 0; /* Remove default padding */
+    font-family: var(--font-family); /* Apply the new font family */
+    line-height: 1.6; /* Increase line height for better readability */
+    font-size: 16px; /* Set a base font size */
   }
 }
 
@@ -174,18 +181,26 @@
   margin-bottom: 15px; /* Space below the photo */
 }
 
+h1, h2, h3 {
+  font-family: var(--font-family); /* Ensure headings use the same font */
+  font-weight: 700; /* Bold for headings */
+  border-radius: 5px; /* Slight rounding for headings */
+}
+
 h1 {
-  font-size: 2.5rem; /* Adjust size as needed */
-  font-weight: bold; /* Optional: make it bold */
+  font-size: 4rem; /* Adjust size as needed */
   text-align: center; /* Optional: center the text */
   margin-bottom: 20px; /* Optional: space below the heading */
+  font-family: "Lucida Handwriting", cursive;
+  color: #303030;
 }
 
 h2 {
-  font-size: 1.5rem; /* Adjust size as needed */
-  font-weight: bold; /* Optional: make it bold */
+  font-size: 2.5rem; /* Adjust size as needed */
   text-align: center; /* Optional: center the text */
   margin-bottom: 20px; /* Optional: space below the heading */
+  font-family: "Lucida Handwriting", cursive;
+  color: #303030;
 }
 
 .employee-stats {
@@ -264,6 +279,7 @@ button[type="submit"]:hover {
 
 /* General text styles */
 p {
+  font-family: var(--font-family); /* Ensure paragraphs use the same font */
   font-size: 1.25rem; /* Adjust font size */
   color: #333; /* Dark text color */
   margin: 5px 0; /* Space above and below paragraphs */
@@ -323,4 +339,36 @@ textarea:focus {
   border-color: #A9A9A9; /* Change border color on focus */
   outline: none; /* Remove default outline */
   box-shadow: 0 0 5px rgba(74, 144, 226, 0.5); /* Shadow on focus */
+}
+
+.admin-page {
+  padding: 20px;
+}
+
+.admin-page h1, .admin-page h2 {
+  margin-bottom: 20px;
+}
+
+.admin-page form {
+  margin-bottom: 20px;
+}
+
+.admin-page input {
+  margin-right: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.admin-page button {
+  padding: 10px;
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.admin-page button:hover {
+  background-color: #005bb5;
 }

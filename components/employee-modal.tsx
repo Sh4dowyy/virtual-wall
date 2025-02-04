@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Confetti from 'react-confetti';
 
 interface Employee {
@@ -16,8 +16,6 @@ interface EmployeeModalProps {
   handleSubmit: (event: React.FormEvent) => void;
   newGratitude: string;
   setNewGratitude: (value: string) => void;
-  newAchievement: string;
-  setNewAchievement: (value: string) => void;
   newWarmWord: string;
   setNewWarmWord: (value: string) => void;
   activeTab: 'gratitude' | 'achievements' | 'warm_words';
@@ -32,8 +30,6 @@ const EmployeeModal: React.FC<EmployeeModalProps> = ({
   handleSubmit,
   newGratitude,
   setNewGratitude,
-  newAchievement,
-  setNewAchievement,
   newWarmWord,
   setNewWarmWord,
   activeTab,
@@ -41,10 +37,15 @@ const EmployeeModal: React.FC<EmployeeModalProps> = ({
   isFlashing,
   showConfetti,
 }) => {
+  useEffect(() => {
+    if (selectedEmployee) {
+      setActiveTab('achievements'); // Always set "Saavutused" as the first active tab
+    }
+  }, [selectedEmployee, setActiveTab]);
+
   if (!selectedEmployee) return null;
 
   const handleBackgroundClick = (e: React.MouseEvent) => {
-    // Close modal if the background is clicked
     if (e.currentTarget === e.target) {
       closeModal();
     }
@@ -60,16 +61,16 @@ const EmployeeModal: React.FC<EmployeeModalProps> = ({
         <h3><strong>{selectedEmployee.name}</strong></h3>
         <div className="tabs">
           <button 
-            className={activeTab === 'gratitude' ? 'active' : ''} 
-            onClick={() => setActiveTab('gratitude')}
-          >
-            💬 Tänulikkus
-          </button>
-          <button 
             className={activeTab === 'achievements' ? 'active' : ''} 
             onClick={() => setActiveTab('achievements')}
           >
             🏆 Saavutused
+          </button>
+          <button 
+            className={activeTab === 'gratitude' ? 'active' : ''} 
+            onClick={() => setActiveTab('gratitude')}
+          >
+            💬 Tänulikkus
           </button>
           <button 
             className={activeTab === 'warm_words' ? 'active' : ''} 
@@ -90,17 +91,6 @@ const EmployeeModal: React.FC<EmployeeModalProps> = ({
               />
             </div>
           )}
-          {activeTab === 'achievements' && (
-            <div>
-              <textarea
-                value={newAchievement}
-                onChange={(e) => setNewAchievement(e.target.value)}
-                placeholder="Lisa saavutused"
-                rows={3}
-                style={{ width: '100%', resize: 'vertical' }}
-              />
-            </div>
-          )}
           {activeTab === 'warm_words' && (
             <div>
               <textarea
@@ -112,16 +102,16 @@ const EmployeeModal: React.FC<EmployeeModalProps> = ({
               />
             </div>
           )}
-          <button type="submit">Saada</button>
+          {(activeTab === 'gratitude' || activeTab === 'warm_words') && (
+            <button type="submit">Saada</button>
+          )}
         </form>
         {activeTab === 'gratitude' && (
-          <>
-            <div className={isFlashing ? 'flashing-heart' : ''}>
-              {selectedEmployee.gratitude.map((item, index) => (
-                <p key={index}>{item}</p>
-              ))}
-            </div>
-          </>
+          <div className={isFlashing ? 'flashing-heart' : ''}>
+            {selectedEmployee.gratitude.map((item, index) => (
+              <p key={index}>{item}</p>
+            ))}
+          </div>
         )}
         {activeTab === 'achievements' && (
           <>

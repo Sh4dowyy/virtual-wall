@@ -114,8 +114,6 @@ export default function EmployeeList() {
         handleSubmit={handleSubmit}
         newGratitude={newGratitude}
         setNewGratitude={setNewGratitude}
-        newAchievement={newAchievement}
-        setNewAchievement={setNewAchievement}
         newWarmWord={newWarmWord}
         setNewWarmWord={setNewWarmWord}
         activeTab={activeTab}
