@@ -101,8 +101,6 @@ export default function EmployeeList() {
 
   return (
     <div className="employee-list">
-      <h1>Meie töötajad</h1>
-      <h2>Lisa tänulikkus, saavutused, soojad sõnad:</h2>
       <div className="employee-cards">
         {employees.map((employee) => (
           <EmployeeCard key={employee.id} employee={employee} onClick={handleCardClick} />

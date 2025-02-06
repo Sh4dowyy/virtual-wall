@@ -33,7 +33,7 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --light-pink: #ffe4e1; /* Define light pink color */
-    --font-family: 'Lucida Handwriting', cursive; /* Set the font family */
+    --font-family: 'Courier New', monospace; /* Set the font family */
   }
 
   .dark {
@@ -191,7 +191,7 @@ h1 {
   font-size: 4rem; /* Adjust size as needed */
   text-align: center; /* Optional: center the text */
   margin-bottom: 20px; /* Optional: space below the heading */
-  font-family: "Lucida Handwriting", cursive;
+  font-family: 'Courier New', monospace;
   color: #303030;
 }
 
@@ -199,7 +199,7 @@ h2 {
   font-size: 2.5rem; /* Adjust size as needed */
   text-align: center; /* Optional: center the text */
   margin-bottom: 20px; /* Optional: space below the heading */
-  font-family: "Lucida Handwriting", cursive;
+  font-family: 'Courier New', monospace;
   color: #303030;
 }
 
@@ -371,4 +371,33 @@ textarea:focus {
 
 .admin-page button:hover {
   background-color: #005bb5;
+}
+
+.bg-white {
+  background-color: white;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.shadow-md {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.max-w-md {
+  max-width: 28rem;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
+.courier-font {
+  font-family: 'Courier New', monospace;
 }
